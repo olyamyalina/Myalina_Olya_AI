@@ -55,3 +55,17 @@ logs/
 *.tmp
 *.bak
 *.old
+
+# Кэш pytest
+.pytest_cache/
+
+# Каталоги с отчётами или временные файлы
+reports_example/
+reports/
+*.png
+reports_example/**/*.csv
+reports/**/*.csv
+
+# Lock-файлы
+uv.lock
+poetry.lock
