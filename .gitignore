@@ -63,6 +63,7 @@ logs/
 reports_example/
 reports/
 *.png
+!homeworks/HW05/figures/*.png
 reports_example/**/*.csv
 reports/**/*.csv
 
