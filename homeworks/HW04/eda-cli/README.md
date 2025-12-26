@@ -282,3 +282,53 @@ uv run pytest -q
 1. Запустить тесты `pytest`;
 2. Проверить работу CLI (`uv run eda-cli ...`);
 3. Проверить работу HTTP-сервиса (`uv run uvicorn ...`, затем `/health` и `/quality`/`/quality-from-csv` через `/docs` или HTTP-клиент).
+---
+
+### 5. POST /quality-flags-from-csv – дополнительный эндпоинт (HW04)
+
+**Описание:**  
+Принимает CSV-файл и возвращает **только набор булевых флагов качества**, рассчитанных через EDA-ядро (`eda_cli.core`).  
+Используются эвристики качества, включая:  
+- too_few_rows  
+- too_many_columns  
+- too_many_missing  
+- has_constant_columns  
+- has_high_cardinality_categoricals  
+
+**Запрос:**
+
+```http
+POST /quality-flags-from-csv
+Content-Type: multipart/form-data
+file: <CSV-файл>
+```
+
+## Пример ответа:
+
+{
+  "flags": {
+    "too_few_rows": false,
+    "too_many_columns": false,
+    "too_many_missing": false,
+    "has_constant_columns": false,
+    "has_high_cardinality_categoricals": true
+  }
+}
+
+## Структура проекта:
+
+S04/
+  eda-cli/
+    pyproject.toml
+    README.md
+    src/
+      eda_cli/
+        core.py
+        viz.py
+        cli.py
+        api.py
+    tests/
+      test_core.py
+    data/
+      example.csv
+
