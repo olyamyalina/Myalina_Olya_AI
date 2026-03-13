@@ -65,6 +65,7 @@ reports/
 *.png
 !homeworks/HW05/figures/*.png
 !homeworks/HW06/artifacts/figures/*.png
+!homeworks/HW08-09/artifacts/figures/*.png
 reports_example/**/*.csv
 reports/**/*.csv
 
