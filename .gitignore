@@ -71,3 +71,5 @@ reports/**/*.csv
 # Lock-файлы
 uv.lock
 poetry.lock
+
+homeworks/HW08-09/data/EMNIST/raw/
